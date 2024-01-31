@@ -1,0 +1,58 @@
+﻿<Window x:Class="HW1801.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HW1801"
+        mc:Ignorable="d"
+        x:Name="MainWindows"
+        Title="MainWindow" Height="450" Width="800">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <WrapPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+            <Button Grid.Column="0" Grid.Row="0" Content="Нажмите правой кнопкой мыши" Margin="0,0,10,0">
+                <Button.ContextMenu>
+                    <ContextMenu >
+                        <MenuItem Header="Подключиться" Click="Button_Click"/>
+                        <MenuItem Header="Отключиться" Click="Button_Click_1"/>
+                        <MenuItem Header="Вывести все продукты" Click="Button_Click_2"/>
+                        <MenuItem Header="Вывести названия"  Click="Button_Click_3"/>
+                        <MenuItem Header="Вывести цвета"  Click="Button_Click_4"/>
+                        <MenuItem Header="Вывести макс. калорийность"  Click="MenuItem_Click"/>
+                        <MenuItem Header="Вывести мин калорийность"  Click="MenuItem_Click_1"/>
+                        <MenuItem Header="Вывести среднюю калорийность"  Click="MenuItem_Click_2"/>
+                        <MenuItem Header="Вывести кол. овощей"  Click="MenuItem_Click_4"/>
+                        <MenuItem Header="Вывести кол. фруктов"  Click="MenuItem_Click_3"/>
+                        <MenuItem Header="Вывести продукт данного цвета" Click="Button_Click_5"/>
+                        <MenuItem Header="Вывести кол. продуктов каждого цвета" Click="Button_Click_6"/>
+                        <MenuItem Header="Вывести продукты, у которых калорийность ниже указ." Click="MenuItem_Click_5"/>
+                        <MenuItem Header="Вывести продукты, у которых калорийность выше указ."  Click="MenuItem_Click_6"/>
+                        <MenuItem Header="Вывести продукты, у которых калорийность равна указ."  Click="MenuItem_Click_7"/>
+                        <MenuItem Header="Вывести продукты, у которых цвет - желтый или красный"  Click="MenuItem_Click_8"/>
+                        <MenuItem Header="Test local db"  Click="MenuItem_Click_9"/>
+                    </ContextMenu>
+                </Button.ContextMenu>
+            </Button>
+            <ComboBox Name="databaseComboBox" SelectedItem="{Binding SelectedDatabase}" ItemsSource="{Binding DatabaseList}" Width="100"/>
+        </WrapPanel>
+        <TextBlock Grid.Row="1" Text="Введите цвет продукта" Margin="0,0,10,0"/>
+        <TextBox x:Name="tb" Grid.Row="2" Grid.Column="0" Margin="0,0,10,0"/>
+        <TextBlock Grid.Row="1" Text="Введите кол калорий" Grid.Column="1" Margin="0,0,10,0"/>
+        <TextBox x:Name="tb2" Grid.Row="2" Grid.Column="1" Margin="0,0,10,0"/>
+        <DataGrid Grid.Row="4" Grid.Column="0" Name="dg" CanUserAddRows="False" IsReadOnly="True" Grid.ColumnSpan="3"/>
+
+        
+    </Grid>
+</Window>
