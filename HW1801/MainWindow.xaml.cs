@@ -28,7 +28,7 @@ namespace HW1801
     /// </summary>
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
-
+        string _connectionString;
         private DbConnection connection;
         private DbProviderFactory factory;
         private string selectedDatabase;
@@ -82,9 +82,9 @@ namespace HW1801
 
             DatabaseList = GetDatabaseNamesFromConfig();
 
-            /*_connectionString = ConfigurationManager
+            _connectionString = ConfigurationManager
             .ConnectionStrings["MyConnectionString"]
-            .ConnectionString;*/
+            .ConnectionString;
             DbProviderFactories.RegisterFactory("System.Data.SqlClient", SqlClientFactory.Instance);
             DbProviderFactories.RegisterFactory("Npgsql", NpgsqlFactory.Instance);
 
